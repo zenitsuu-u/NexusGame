@@ -1,31 +1,26 @@
 env:
   contexts:
-    - name: baseline
-      urls:
-        - http://host.docker.internal:5000
-      excludePaths: []
-
+  - excludePaths: []
+    name: baseline
+    urls:
+    - http://host.docker.internal:5000
   parameters:
     failOnError: true
-    progressToStdout: true
-
+    progressToStdout: false
 jobs:
-
-  - type: passiveScan-config
-    parameters:
-      enableTags: true
-      maxAlertsPerRule: 10
-
-  - type: spider
-    parameters:
-      url: http://host.docker.internal:5000
-      maxDuration: 5
-
-  - type: passiveScan-wait
-
-  - type: report
-    parameters:
-      template: traditional-html
-      reportDir: /zap/wrk/
-      reportFile: zap-report.html
-      reportTitle: ZAP GameStore Report
+- parameters:
+    enableTags: false
+    maxAlertsPerRule: 10
+  type: passiveScan-config
+- parameters:
+    maxDuration: 1
+    url: http://host.docker.internal:5000
+  type: spider
+- parameters:
+    maxDuration: 0
+  type: passiveScan-wait
+- parameters:
+    format: Long
+    summaryFile: /home/zap/zap_out.json
+  rules: []
+  type: outputSummary
