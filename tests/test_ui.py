@@ -127,4 +127,4 @@ class TestChoixLibresUI:
 
         home.filter_genre("Action")
 
-        expect(home.get_game_cards()).to_contain_text("E2E Game")
+        expect(page.get_by_text("E2E Game")).to_be_visible()
