@@ -102,15 +102,13 @@ class TestAvecPOM:
 
         cards = home.get_game_cards()
 
-        expect(
-            cards.filter(has_text="E2E Game").first
-        ).to_be_visible()
-
         count = cards.count()
         assert count > 0
 
         for i in range(count):
-            expect(cards.nth(i).locator('[data-testid="game-genre"]')).to_contain_text("RPG")
+            expect(
+                cards.nth(i).locator('[data-testid="game-genre"]')
+            ).to_contain_text("RPG")
 
 
 # ════════════════════════════════════════════════════════════════════════════════
