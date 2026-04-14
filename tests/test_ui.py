@@ -102,6 +102,10 @@ class TestAvecPOM:
 
         cards = home.get_game_cards()
 
+        expect(
+            cards.filter(has_text="E2E Game").first
+        ).to_be_visible()
+
         count = cards.count()
         assert count > 0
 
@@ -127,4 +131,6 @@ class TestChoixLibresUI:
 
         home.filter_genre("Action")
 
-        expect(page.get_by_text("E2E Game")).to_be_visible()
+        expect(
+            home.get_game_cards().filter(has_text="E2E Game").first
+        ).to_be_visible()
