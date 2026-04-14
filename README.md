@@ -187,10 +187,18 @@ Lors de l'exécution de la suite de tests unitaires, plusieurs comportements ina
 
 ## Pipeline CI/CD
 
-<!-- État de votre pipeline sur GitHub Actions. -->
+Le projet utilise **GitHub Actions** pour automatiser les tests et l’intégration continue.
 
----
+À chaque push ou pull request sur la branche principale :
+- Installation des dépendances
+- Exécution des tests automatisés
+- Analyse de qualité du code (si configurée)
+- Vérification du bon fonctionnement de l’application
+
+Le pipeline permet de détecter rapidement les erreurs et d’assurer la stabilité du projet.
 
 ## Ce que j'ai appris
 
-<!-- Optionnel. -->
+- Mise en place d’un pipeline CI/CD avec GitHub Actions
+- Utilisation de Docker pour exécuter des outils de sécurité (ZAP)
+- Importance des bonnes pratiques de sécurité dans une application web
